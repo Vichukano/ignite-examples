@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  ignite-node:
+    image: apacheignite/ignite:latest
+    container_name: ignite-node
+    ports:
+      - "10800:10800"   # Thin Client
+    restart: always

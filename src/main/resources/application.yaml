@@ -1,0 +1,5 @@
+spring.application.name: ignite-examples
+ignite-client:
+  addresses: 'localhost:10800'
+server:
+  port: 8082
