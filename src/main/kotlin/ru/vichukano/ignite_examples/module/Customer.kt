@@ -5,7 +5,7 @@ import org.apache.ignite.cache.query.annotations.QuerySqlField
 import java.time.Instant
 
 data class Customer(
-    @AffinityKeyMapped
+    @QuerySqlField(index = true)
     val id: Long,
     @QuerySqlField(index = true)
     val name: String,

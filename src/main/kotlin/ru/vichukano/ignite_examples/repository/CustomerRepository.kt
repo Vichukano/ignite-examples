@@ -4,7 +4,7 @@ import org.apache.ignite.springdata.repository.IgniteRepository
 import org.apache.ignite.springdata.repository.config.RepositoryConfig
 import ru.vichukano.ignite_examples.module.Customer
 
-@RepositoryConfig(cacheName = "person-cache3")
+@RepositoryConfig(cacheName = "customer-cache")
 interface CustomerRepository : IgniteRepository<Customer, Long> {
 
     fun findCustomerByName(name: String): Customer?
