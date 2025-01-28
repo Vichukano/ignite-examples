@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RestController
 import ru.vichukano.ignite_examples.module.Customer
 import ru.vichukano.ignite_examples.repository.CustomerRepository
+import java.sql.Timestamp
 import java.time.Instant
 import kotlin.random.Random
 
@@ -21,8 +22,8 @@ class CustomerController(
         val customer = Customer(
             id = id,
             name = name,
-            createdAt = Instant.now(),
-            orders = listOf()
+            createdAt = Timestamp.from(Instant.now()),
+            orderEntities = listOf()
         )
         repository.save(customer.id, customer)
         log.info { "Created Customer: $customer" }
@@ -31,7 +32,7 @@ class CustomerController(
 
     @GetMapping("/customer/{name}")
     fun getCustomer(@PathVariable name: String): Customer {
-        return repository.findCustomerByName(name).also {
+        return repository.findCustomerByNameOrderByCreatedAtAsc(name).also {
             log.info { "Found customer: $it" }
         } ?: throw IllegalStateException("Customer with name: $name not found")
     }
