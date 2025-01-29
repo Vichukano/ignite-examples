@@ -31,6 +31,7 @@ dependencies {
     implementation("org.apache.ignite:ignite-core:2.16.0")
     implementation("org.apache.ignite:ignite-indexing:2.16.0")
     implementation("org.apache.ignite:ignite-spring:2.16.0")
+    implementation("org.apache.ignite:ignite-spring-tx-ext:1.0.0")
     implementation("io.github.microutils:kotlin-logging:2.1.23")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
