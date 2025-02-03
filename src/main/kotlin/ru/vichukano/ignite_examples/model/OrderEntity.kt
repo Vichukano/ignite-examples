@@ -1,4 +1,4 @@
-package ru.vichukano.ignite_examples.module
+package ru.vichukano.ignite_examples.model
 
 import org.apache.ignite.cache.query.annotations.QuerySqlField
 

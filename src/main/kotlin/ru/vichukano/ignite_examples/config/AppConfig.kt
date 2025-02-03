@@ -10,8 +10,8 @@ import org.apache.ignite.transactions.spring.IgniteClientSpringTransactionManage
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.transaction.PlatformTransactionManager
-import ru.vichukano.ignite_examples.module.Customer
-import ru.vichukano.ignite_examples.module.OrderEntity
+import ru.vichukano.ignite_examples.model.Customer
+import ru.vichukano.ignite_examples.model.OrderEntity
 
 @Configuration
 class AppConfig {

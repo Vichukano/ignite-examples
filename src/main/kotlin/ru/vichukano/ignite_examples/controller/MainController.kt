@@ -2,7 +2,7 @@ package ru.vichukano.ignite_examples.controller
 
 import mu.KotlinLogging
 import org.springframework.web.bind.annotation.*
-import ru.vichukano.ignite_examples.module.Customer
+import ru.vichukano.ignite_examples.model.Customer
 import ru.vichukano.ignite_examples.service.CustomerOrderService
 
 @RestController
