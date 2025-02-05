@@ -4,13 +4,11 @@ import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional
 import ru.vichukano.ignite_examples.model.Customer
 import ru.vichukano.ignite_examples.model.OrderEntity
-import ru.vichukano.ignite_examples.model.Something
-import ru.vichukano.ignite_examples.repository.CustomerRepository
-import ru.vichukano.ignite_examples.repository.OrderRepository
+import ru.vichukano.ignite_examples.repository.ignite.CustomerRepository
+import ru.vichukano.ignite_examples.repository.ignite.OrderRepository
 import java.sql.Timestamp
 import java.time.Instant
 import kotlin.random.Random
-import kotlin.random.nextInt
 
 @Component
 class CustomerOrderService(
@@ -48,8 +46,6 @@ class CustomerOrderService(
             orderRepository.deleteAllById(foundByItem.map { it.id })
         }
         val filtered = orders - foundByItem
-        //Should not delete cause transaction
-        //throw RuntimeException("BOOM")
         return customer.copy(orderEntities = filtered)
     }
 
@@ -60,10 +56,7 @@ class CustomerOrderService(
             name = name,
             createdAt = Timestamp.from(Instant.now()),
             orderEntities = listOf(),
-            randomInt = Random.nextInt(0..100),
             updatedAt = Instant.now(),
-            strings = listOf("A", "B", "C"),
-            somethings = setOf(Something("S", 1L), Something("X", 2L))
         )
         customerRepository.save(customer.id, customer)
         return customer

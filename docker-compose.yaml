@@ -7,3 +7,13 @@ services:
     ports:
       - "10800:10800"   # Thin Client
     restart: always
+  db:
+    image: postgres
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_PASSWORD: 123
+      POSTGRES_USER: test
+      POSTGRES_DB: ignite-with-db
+    ports:
+      - "5432:5432"

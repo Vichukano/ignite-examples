@@ -12,8 +12,5 @@ data class Customer(
     @QuerySqlField
     val createdAt: Timestamp,
     val updatedAt: Instant,
-    val randomInt: Int,
-    val strings: List<String>,
-    val somethings: Set<Something>,
     val orderEntities: List<OrderEntity>,
 )

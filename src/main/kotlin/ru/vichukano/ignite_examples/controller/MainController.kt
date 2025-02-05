@@ -1,14 +1,31 @@
 package ru.vichukano.ignite_examples.controller
 
 import mu.KotlinLogging
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.web.bind.annotation.*
 import ru.vichukano.ignite_examples.model.Customer
+import ru.vichukano.ignite_examples.model.ItemEntity
+import ru.vichukano.ignite_examples.repository.db.ItemRepository
 import ru.vichukano.ignite_examples.service.CustomerOrderService
+import java.time.Instant
 
 @RestController
 class MainController(
-    private val service: CustomerOrderService
+    private val service: CustomerOrderService,
+    private val itemRepository: ItemRepository,
 ) {
+
+    @PostMapping("/item")
+    fun createItem(): ItemEntity {
+        val item = ItemEntity(createdAt = Instant.now())
+        itemRepository.save(item)
+        return item
+    }
+
+    @GetMapping("/item/{id}")
+    fun findItem(
+        @PathVariable id: Long
+    ): ItemEntity = itemRepository.findByIdOrNull(id)!!
 
     @PostMapping("/order/{name}/{item}/{price}")
     fun createOrder(

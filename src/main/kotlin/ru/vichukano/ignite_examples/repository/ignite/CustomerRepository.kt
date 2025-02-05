@@ -1,4 +1,4 @@
-package ru.vichukano.ignite_examples.repository
+package ru.vichukano.ignite_examples.repository.ignite
 
 import org.apache.ignite.springdata.repository.IgniteRepository
 import org.apache.ignite.springdata.repository.config.RepositoryConfig
